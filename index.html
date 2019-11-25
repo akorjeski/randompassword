@@ -32,7 +32,7 @@ if (userChoice === "numbers" || userChoice ==="lowercase" || userChoice ==="uppe
  else {console.log("Please select from: number, special lowercase, uppercase")}
 
 }
-
+// These are the 4 functions to generate passwords from a charset
 function randomPasswordlowercase(length) {
     var chars = "abcdefghijklmnopqrstuvwxyz";
     var pass = "";
@@ -71,7 +71,7 @@ function randomPasswordspecial(length) {
     }
     console.log(pass);
 }
-
+// This function chooses which password to generate based on user choice 
 function choosePassword(length){
 
 if (userChoice === "numbers"){
@@ -88,7 +88,7 @@ else if (userChoice === "special"){
 }
 }
 
-// Invoke the function
+// Invoke the functions
 generatePassword(); 
 choosePassword(userLength);
   
@@ -99,7 +99,7 @@ choosePassword(userLength);
     <h2>Generate a Password</h2>
     <textarea
       readonly
-      id="password"
+      id="passwordholder"
       placeholder="Your Secure Password"
       aria-label="Generated Password"
     ></textarea>
