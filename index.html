@@ -12,6 +12,7 @@
   </head>
   <body>
 <script>
+// Establish these variables outside anything so you can use them in all your functions
 var userLength = prompt("How long would you like your password?");
 var userChoice = prompt("What type of password would you like? numbers, lowercase or uppercase?");
 // Start of the function that asks for password length and type of password 
@@ -32,7 +33,7 @@ if (userChoice === "numbers" || userChoice ==="lowercase" || userChoice ==="uppe
 
 }
 
-function randomPassword(length) {
+function randomPasswordlowercase(length) {
     var chars = "abcdefghijklmnopqrstuvwxyz";
     var pass = "";
     for (var x = 0; x < length; x++) {
@@ -42,10 +43,42 @@ function randomPassword(length) {
     console.log(pass);
 }
 
+function randomPasswordnumbers(length) {
+    var chars = "123456789";
+    var pass = "";
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    console.log(pass);
+}
+
+function randomPassworduppercase(length) {
+    var chars = "ABCDEFGHIJKLMOPQRSTUVQXYZ";
+    var pass = "";
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    console.log(pass);
+}
+
+function choosePassword(length){
+
+if (userChoice === "numbers"){
+    randomPasswordnumbers(userLength);
+  }
+else if (userChoice === "lowercase"){
+    randomPasswordlowercase(userLength);
+}
+else if (userChoice === "uppercase"){
+    randomPassworduppercase(userLength);
+}
+}
 
 // Invoke the function
 generatePassword(); 
-randomPassword(userLength);
+choosePassword(userLength);
   
 </script>
     <header>
