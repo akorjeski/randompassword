@@ -12,10 +12,10 @@
   </head>
   <body>
 <script>
-// Start of the function that asks for password length and type of password 
-function generatePassword(){
 var userLength = prompt("How long would you like your password?");
 var userChoice = prompt("What type of password would you like? numbers, lowercase or uppercase?");
+// Start of the function that asks for password length and type of password 
+function generatePassword(){
 
 // Function for password length
 if (userLength > 8 && userLength < 128) {
@@ -28,12 +28,24 @@ else {console.log("Please select a length between 8 and 128");
 if (userChoice === "numbers" || userChoice ==="lowercase" || userChoice ==="uppercase"){
  console.log("Acceptable Password Type: " + userChoice); }
 
- else {console.log("Please select from number, lowercase or uppercase")}
+ else {console.log("Please select from: number, lowercase, uppercase")}
+
 }
 
+function randomPassword(length) {
+    var chars = "abcdefghijklmnopqrstuvwxyz";
+    var pass = "";
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    console.log(pass);
+}
+
+
 // Invoke the function
-generatePassword();
-  
+generatePassword(); 
+randomPassword(userLength);
   
 </script>
     <header>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+var passwordLength = 10;
+function randomPassword(length) {
+    var chars = "abcdefghijklmnopqrstuvwxyz";
+    var pass = "";
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    console.log(pass);
+}
+
+randomPassword(passwordLength);
+
+
+
+
+</script> 
+</body>
+</html>
