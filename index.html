@@ -11,6 +11,7 @@
     <title>Password Generator</title>
   </head>
   <body>
+
 <script>
 
 // Start of the function that asks for password length and type of password 
@@ -18,14 +19,12 @@ function generatePassword(){
 var userLength = prompt("How long would you like your password?");
 var userChoice = prompt("What type of password would you like? numbers, special, lowercase or uppercase?");
 
-// Function for password length
+// Function for console.log'ing password length
 if (userLength >= 8 && userLength <= 128) {
 console.log("Acceptable Password Length: " + userLength);
 }
 
-//Figure out a way to add error trapping here.
-
-// Function for password type 
+// Function for console.log'ing password type 
 if (userChoice === "numbers" || userChoice ==="lowercase" || userChoice ==="uppercase" || userChoice === "special"){
  console.log("Acceptable Password Type: " + userChoice);
 
@@ -78,7 +77,7 @@ function randomPasswordspecial(length) {
     var displayPass = document.querySelector("#passwordholder");
     displayPass.textContent = pass;
 }
-// This function chooses which password to generate based on user choice 
+// This function chooses which password to generate based on user inputs. This is the big controller. 
 if (userChoice === "numbers" && (userLength >= 8 && userLength <= 128)){
     randomPasswordnumbers(userLength);
   }
@@ -106,19 +105,66 @@ alert("Your password has been copied to the clipboard!");
 }
 /// End of the Javascript  
 </script>
-    <header>
-      <h1>Password Generator</h1>
-    </header>
-    <h2>Generate a Password</h2>
-    <textarea
-      readonly
-      id="passwordholder"
-      placeholder="Your Secure Password"
-      aria-label="Generated Password"
-    ></textarea>
-    <button id="generate" onclick="generatePassword()">Generate Password</button>
-    <button id="copy" onclick="clipboardCopy()">
-      Copy to Clipboard
+
+<!-- This is the navbar at the top     -->
+<nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+    <a class="navbar-brand" href="#">Alexander Korjeski</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
     </button>
-  </body>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    </div>  
+  </nav> 
+  <!-- End of the navbar    -->
+<div class="container-fluid">
+<!-- Start of Row 1 -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">    
+  <header>
+    <h1>Password Generator</h1>
+  </header></div>
+    <div class="col-md-4"></div>
+
+    </div>
+<!-- Start of Row 2 -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">    
+      <header>
+        <h2>Generate a Password</h2>
+      </header></div>
+    <div class="col-md-4"></div>
+    
+    </div>
+<!-- Start of Row 3 -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">
+        <textarea
+        readonly
+        id="passwordholder"
+        placeholder="Your Secure Password"
+        aria-label="Generated Password"
+        rows="4" cols="50"
+      ></textarea>
+    </div>   
+    <div class="col-md-4"></div>
+   
+    </div>
+<!-- Start of Row 4 -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">
+        <button id="generate" onclick="generatePassword()">Generate Password</button>
+        <button id="copy" onclick="clipboardCopy()">
+          Copy to Clipboard
+        </button>
+    </div>   
+    <div class="col-md-4"></div>
+   
+    </div>
+</div>
+
+</body>
 </html>
