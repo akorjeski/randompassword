@@ -12,7 +12,6 @@
   </head>
   <body>
 <script>
-// Establish these variables outside anything so you can use them in all your functions
 
 // Start of the function that asks for password length and type of password 
 function generatePassword(){
@@ -20,20 +19,17 @@ var userLength = prompt("How long would you like your password?");
 var userChoice = prompt("What type of password would you like? numbers, special, lowercase or uppercase?");
 
 // Function for password length
-if (userLength > 8 && userLength < 128) {
+if (userLength >= 8 && userLength <= 128) {
 console.log("Acceptable Password Length: " + userLength);
 }
-else {alert ("Please select a length between 8 and 128");
-}
+
+//Figure out a way to add error trapping here.
 
 // Function for password type 
 if (userChoice === "numbers" || userChoice ==="lowercase" || userChoice ==="uppercase" || userChoice === "special"){
  console.log("Acceptable Password Type: " + userChoice);
 
 }
-
- else {alert("Please select from: number, special lowercase, uppercase")}
-
 
 // These are the 4 functions to generate passwords from a charset
 function randomPasswordlowercase(length) {
@@ -83,24 +79,32 @@ function randomPasswordspecial(length) {
     displayPass.textContent = pass;
 }
 // This function chooses which password to generate based on user choice 
-if (userChoice === "numbers"){
+if (userChoice === "numbers" && (userLength >= 8 && userLength <= 128)){
     randomPasswordnumbers(userLength);
   }
-else if (userChoice === "lowercase"){
+else if (userChoice === "lowercase" && (userLength >= 8 && userLength <= 128)){
     randomPasswordlowercase(userLength);
 }
-else if (userChoice === "uppercase"){
+else if (userChoice === "uppercase" && (userLength >= 8 && userLength <= 128)){
     randomPassworduppercase(userLength);
 }
-else if (userChoice === "special"){
+else if (userChoice === "special" && (userLength >= 8 && userLength <= 128)){
     randomPasswordspecial(userLength);
+}
+else {alert("Please make sure you choose a length between 8 and 128 and choose from: number, special lowercase, uppercase");
+
 }
 }
 
-// Invoke the functions
-// generatePassword(); 
-// choosePassword(userLength);
-  
+///Start of the function that copies the password onto the clipboard
+function clipboardCopy(){
+var clipboardtext = document.getElementById("passwordholder");
+clipboardtext.select();
+document.execCommand("copy");
+alert("Your password has been copied to the clipboard!");
+
+}
+/// End of the Javascript  
 </script>
     <header>
       <h1>Password Generator</h1>
@@ -113,7 +117,7 @@ else if (userChoice === "special"){
       aria-label="Generated Password"
     ></textarea>
     <button id="generate" onclick="generatePassword()">Generate Password</button>
-    <button id="copy">
+    <button id="copy" onclick="clipboardCopy()">
       Copy to Clipboard
     </button>
   </body>
