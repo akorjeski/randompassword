@@ -44,6 +44,8 @@ function randomPasswordlowercase(length) {
         pass += chars.charAt(i);
     }
     console.log(pass);
+    var displayPass = document.querySelector("#passwordholder");
+    displayPass.textContent = pass;
 }
 
 function randomPasswordnumbers(length) {
@@ -54,6 +56,8 @@ function randomPasswordnumbers(length) {
         pass += chars.charAt(i);
     }
     console.log(pass);
+    var displayPass = document.querySelector("#passwordholder");
+    displayPass.textContent = pass;
 }
 
 function randomPassworduppercase(length) {
@@ -64,6 +68,8 @@ function randomPassworduppercase(length) {
         pass += chars.charAt(i);
     }
     console.log(pass);
+    var displayPass = document.querySelector("#passwordholder");
+    displayPass.textContent = pass;
 }
 function randomPasswordspecial(length) {
     var chars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
@@ -73,6 +79,8 @@ function randomPasswordspecial(length) {
         pass += chars.charAt(i);
     }
     console.log(pass);
+    var displayPass = document.querySelector("#passwordholder");
+    displayPass.textContent = pass;
 }
 // This function chooses which password to generate based on user choice 
 if (userChoice === "numbers"){
